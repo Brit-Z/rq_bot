@@ -52,7 +52,7 @@ def sendPhoto( photo_id:str, user_name:str, user_id, caption='', recipient_id=''
     addMessage(user_id=user_id, user_name=user_name, photo_id=photo_id, caption=caption)
 
 
-def answerCommand(text:str, user_name:str, user_id, chat_id):
+def answerCommand(user_name:str, user_id, chat_id, text=''):
     if text == '/start':
         params = {
             'chat_id': chat_id,
@@ -112,7 +112,7 @@ def hendelUpdate(update):
             recipient_id = getRecipientId(update)
             sendPhoto(photo_id, user_name, user_id, caption, recipient_id)
     else:
-        answerCommand(text=text, user_name=user_name, user_id=user_id, chat_id=chat_id)
+        answerCommand(user_name=user_name, user_id=user_id, chat_id=chat_id)
     
 
 def getUpdates():
